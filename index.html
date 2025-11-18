@@ -68,23 +68,17 @@
                 p4_1_output: "// Output: Animation Trace file created:dumbbell.xml",
                 p4_2_title: '4.2 Launch NetAnim GUI and Load Trace',
                 p4_2_desc: 'The final step—launching the animator and viewing the results.',
-                p4_2_info: 'The NetAnim window will open. Use the **Open File** icon and select **`dumbbell.xml`**.',
-                phase5_title: 'Phase 5: Running New Examples & Custom Code',
-                p5_1_title: '5.1 Running Other Built-in NetAnim Examples',
-                p5_1_desc: 'To view other pre-built examples that support visualization, first use `find` to locate the executable name and then run it, specifying a new output file name.',
-                p5_1_output: "// Lists available executables, e.g., 'build/src/netanim/examples/ns3-dev-wifi-example-animation'",
-                p5_1_info: 'The new trace file (e.g., `wifi.xml`) is now ready to open in the NetAnim GUI.',
-                p5_2_title: '5.2 Creating Your Own Simulation File',
-                p5_2_desc: 'To enable NetAnim for your custom C++ simulation (saved in `~/ns-3-dev/scratch/`), you **must** include three essential steps in your code:',
-                p5_2_req1: '1. Include `netanim-module.h`',
-                p5_2_req2: '2. Set Node Positions (Mobility Model)',
-                p5_2_req3: '3. Instantiate `AnimationInterface`',
-                p5_2_snippet_comment1: '// (1) Include the header',
-                p5_2_snippet_comment2: '// (2) SET NODE POSITIONS (REQUIRED!)',
-                p5_2_snippet_comment3: '// (3) INSTANTIATE ANIMATION INTERFACE',
-                p5_3_title: '5.3 Building and Running Your Custom Code',
-                p5_3_desc: 'If you save your file as `~/ns-3-dev/scratch/my-new-sim.cc`, you run it using the `./ns3 run` command (without the `.cc` extension). ns-3 handles the compilation automatically.',
-                p5_3_info: 'The new trace file (`my-custom-trace.xml`) will be generated in `~/ns-3-dev`, ready to be loaded into NetAnim.',
+                p4_2_info: 'The NetAnim window will open. Use the **File -> Open** menu and select **`dumbbell.xml`** from the `ns-3-dev` folder.',
+                phase5_title: 'Phase 5: Writing & Running Your First Custom Simulation',
+                p5_intro: 'The `ns-3` build system automatically compiles any `.cc` files placed in the `~/ns-3-dev/scratch/` directory. This is the perfect place to write your own simulations without modifying the ns-3 source.',
+                p5_1_title: '5.1 Create the C++ Simulation File',
+                p5_1_desc: 'Create a new file named `my-first-sim.cc` inside the `scratch` folder. You can use a terminal-based editor like `nano` (`nano scratch/my-first-sim.cc`) or a graphical editor like VS Code. Paste the following complete example into the file.',
+                p5_1_filename: 'File: `~/ns-3-dev/scratch/my-first-sim.cc`',
+                p5_2_title: '5.2 Build and Run the Simulation',
+                p5_2_desc: 'Now, from the `~/ns-3-dev` directory, use the `ns3 run` command. You refer to the file by its name in the `scratch` folder, without the `.cc` extension. ns-3 will compile and execute it.',
+                p5_2_output: '// Output: Animation Trace file created: my-first-sim.xml',
+                p5_3_title: '5.3 Visualize the Output',
+                p5_3_desc: 'A new animation file, `my-first-sim.xml`, has been generated in your `~/ns-3-dev` directory. Launch NetAnim again and open this new file to see your custom two-node simulation.',
                 footer_text: 'Guide compiled based on successful build commands for ns-3 (CMake) and NetAnim (GitLab standalone repository).',
                 copy_button_text: 'Copy',
                 copy_button_success_text: 'Copied!'
@@ -126,23 +120,17 @@
                 p4_1_output: "// Sortie : Fichier de trace d'animation créé:dumbbell.xml",
                 p4_2_title: '4.2 Lancer l\'interface graphique NetAnim et charger la trace',
                 p4_2_desc: 'L\'étape finale : lancer l\'animateur et visualiser les résultats.',
-                p4_2_info: 'La fenêtre NetAnim s\'ouvrira. Utilisez l\'icône **Ouvrir fichier** et sélectionnez **`dumbbell.xml`**.',
-                phase5_title: 'Étape 5 : Exécuter de nouveaux exemples et code personnalisé',
-                p5_1_title: '5.1 Exécuter d\'autres exemples NetAnim intégrés',
-                p5_1_desc: 'Pour visualiser d\'autres exemples pré-construits qui prennent en charge la visualisation, utilisez d\'abord `find` pour localiser le nom de l\'exécutable, puis exécutez-le en spécifiant un nouveau nom de fichier de sortie.',
-                p5_1_output: "// Liste les exécutables disponibles, par ex., 'build/src/netanim/examples/ns3-dev-wifi-example-animation'",
-                p5_1_info: 'Le nouveau fichier de trace (par ex., `wifi.xml`) est maintenant prêt à être ouvert dans l\'interface graphique NetAnim.',
-                p5_2_title: '5.2 Créer votre propre fichier de simulation',
-                p5_2_desc: 'Pour activer NetAnim pour votre simulation C++ personnalisée (enregistrée dans `~/ns-3-dev/scratch/`), vous **devez** inclure trois étapes essentielles dans votre code :',
-                p5_2_req1: '1. Inclure `netanim-module.h`',
-                p5_2_req2: '2. Définir les positions des nœuds (Modèle de mobilité)',
-                p5_2_req3: '3. Instancier `AnimationInterface`',
-                p5_2_snippet_comment1: '// (1) Inclure l\'en-tête',
-                p5_2_snippet_comment2: '// (2) DÉFINIR LES POSITIONS DES NŒUDS (OBLIGATOIRE !)',
-                p5_2_snippet_comment3: '// (3) INSTANCIER L\'INTERFACE D\'ANIMATION',
-                p5_3_title: '5.3 Construire et exécuter votre code personnalisé',
-                p5_3_desc: 'Si vous enregistrez votre fichier sous `~/ns-3-dev/scratch/my-new-sim.cc`, vous l\'exécutez à l\'aide de la commande `./ns3 run` (sans l\'extension `.cc`). ns-3 gère la compilation automatiquement.',
-                p5_3_info: 'Le nouveau fichier de trace (`my-custom-trace.xml`) sera généré dans `~/ns-3-dev`, prêt à être chargé dans NetAnim.',
+                p4_2_info: 'La fenêtre NetAnim s\'ouvrira. Utilisez le menu **Fichier -> Ouvrir** et sélectionnez **`dumbbell.xml`** depuis le dossier `ns-3-dev`.',
+                phase5_title: 'Étape 5 : Écrire et exécuter votre première simulation personnalisée',
+                p5_intro: 'Le système de construction `ns-3` compile automatiquement tout fichier `.cc` placé dans le répertoire `~/ns-3-dev/scratch/`. C\'est l\'endroit idéal pour écrire vos propres simulations sans modifier le code source de ns-3.',
+                p5_1_title: '5.1 Créer le fichier de simulation C++',
+                p5_1_desc: 'Créez un nouveau fichier nommé `my-first-sim.cc` dans le dossier `scratch`. Vous pouvez utiliser un éditeur de terminal comme `nano` (`nano scratch/my-first-sim.cc`) ou un éditeur graphique comme VS Code. Collez l\'exemple complet suivant dans le fichier.',
+                p5_1_filename: 'Fichier : `~/ns-3-dev/scratch/my-first-sim.cc`',
+                p5_2_title: '5.2 Construire et exécuter la simulation',
+                p5_2_desc: 'Maintenant, depuis le répertoire `~/ns-3-dev`, utilisez la commande `ns3 run`. Vous faites référence au fichier par son nom dans le dossier `scratch`, sans l\'extension `.cc`. ns-3 le compilera et l\'exécutera.',
+                p5_2_output: '// Sortie : Fichier de trace d\'animation créé : my-first-sim.xml',
+                p5_3_title: '5.3 Visualiser le résultat',
+                p5_3_desc: 'Un nouveau fichier d\'animation, `my-first-sim.xml`, a été généré dans votre répertoire `~/ns-3-dev`. Lancez à nouveau NetAnim et ouvrez ce nouveau fichier pour voir votre simulation personnalisée à deux nœuds.',
                 footer_text: 'Guide compilé sur la base des commandes de construction réussies pour ns-3 (CMake) et NetAnim (référentiel autonome GitLab).',
                 copy_button_text: 'Copier',
                 copy_button_success_text: 'Copié !'
@@ -534,7 +522,7 @@
                         <div class="code-block mt-4">
                             <span class="terminal-prompt">$</span> ./netanim/build/NetAnim
                         </div>
-                        <p data-key="p4_2_info" class="mt-4 text-gray-700 dark:text-gray-300"></p>
+                        <p data-key="p4_2_info" data-html="true" class="mt-4 text-gray-700 dark:text-gray-300"></p>
                     </div>
                 </div>
             </section>
@@ -542,61 +530,93 @@
             <!-- Phase 5: Custom Simulations -->
             <section>
                 <h2 data-key="phase5_title" class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 border-b border-gray-300 dark:border-gray-600 pb-4"></h2>
-                
-                <!-- 5.1 Other Examples -->
-                <h3 data-key="p5_1_title" class="text-2xl font-semibold text-ns-secondary dark:text-ns-primary mt-6 mb-4"></h3>
-                <p data-key="p5_1_desc" class="text-gray-600 dark:text-gray-300 mb-4"></p>
-                <div class="step-card p-6 bg-white dark:bg-dark-card rounded-xl border-t-4 border-ns-primary shadow-lg">
-                    <div class="code-block mt-3">
-                        <span class="terminal-prompt">~/ns-3-dev$</span> ./ns3 run --list | grep -i animation
-                        <div data-key="p5_1_output" class="terminal-output mt-2 text-sm"></div>
-                        <div class="mt-4"></div>
-                        <span class="terminal-prompt">~/ns-3-dev$</span> ./ns3 run "wifi-simple-infra-animation --animFile=wifi.xml"
+                <p data-key="p5_intro" class="text-gray-600 dark:text-gray-300 mb-10"></p>
+
+                <div class="space-y-12">
+                    <!-- 5.1 Create the File -->
+                    <div class="step-card p-6 bg-white dark:bg-dark-card rounded-xl border-t-4 border-ns-primary shadow-lg">
+                        <h3 data-key="p5_1_title" class="text-2xl font-semibold text-ns-secondary dark:text-ns-primary"></h3>
+                        <p data-key="p5_1_desc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4"></p>
+                        <p data-key="p5_1_filename" class="font-mono text-sm bg-gray-200 dark:bg-gray-900 p-2 rounded-md inline-block mb-4"></p>
+                        <div class="cpp-code-block code-block bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 transition-colors duration-300">
+<pre>
+#include "ns3/core-module.h"
+#include "ns3/network-module.h"
+#include "ns3/internet-module.h"
+#include "ns3/point-to-point-module.h"
+#include "ns3/applications-module.h"
+#include "ns3/mobility-module.h"
+#include "ns3/netanim-module.h"
+
+using namespace ns3;
+
+int main(int argc, char* argv[])
+{
+    // Create two nodes
+    NodeContainer nodes;
+    nodes.Create(2);
+
+    // Create a point-to-point link
+    PointToPointHelper pointToPoint;
+    pointToPoint.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
+    pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
+
+    NetDeviceContainer devices;
+    devices = pointToPoint.Install(nodes);
+
+    // Install the internet stack (TCP/IP)
+    InternetStackHelper stack;
+    stack.Install(nodes);
+
+    // Assign IP addresses
+    Ipv4AddressHelper address;
+    address.SetBase("10.1.1.0", "255.255.255.0");
+    Ipv4InterfaceContainer interfaces = address.Assign(devices);
+
+    // --- Set node positions for NetAnim ---
+    MobilityHelper mobility;
+    mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
+    mobility.Install(nodes);
+
+    // Place nodes manually
+    Ptr<Node> n0 = nodes.Get(0);
+    Ptr<Node> n1 = nodes.Get(1);
+    Ptr<MobilityModel> mob0 = n0->GetObject<MobilityModel>();
+    Ptr<MobilityModel> mob1 = n1->GetObject<MobilityModel>();
+    mob0->SetPosition(Vector(0.0, 0.0, 0.0));
+    mob1->SetPosition(Vector(50.0, 0.0, 0.0));
+
+    // --- Instantiate the animation interface ---
+    AnimationInterface anim("my-first-sim.xml");
+
+    // Run the simulation
+    Simulator::Run();
+    Simulator::Destroy();
+    return 0;
+}
+</pre>
+                        </div>
                     </div>
-                    <p data-key="p5_1_info" class="mt-3 text-gray-700 dark:text-gray-300"></p>
-                </div>
 
-                <!-- 5.2 Custom Code Requirements -->
-                <h3 data-key="p5_2_title" class="text-2xl font-semibold text-ns-secondary dark:text-ns-primary mt-12 mb-4"></h3>
-                <p data-key="p5_2_desc" class="text-gray-600 dark:text-gray-300 mb-6"></p>
+                    <!-- 5.2 Build and Run -->
+                    <div class="step-card p-6 bg-white dark:bg-dark-card rounded-xl border-t-4 border-ns-primary shadow-lg">
+                        <h3 data-key="p5_2_title" class="text-2xl font-semibold text-ns-secondary dark:text-ns-primary"></h3>
+                        <p data-key="p5_2_desc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4"></p>
+                        <div class="code-block mt-3">
+                            <span class="terminal-prompt">~/ns-3-dev$</span> ./ns3 run scratch/my-first-sim
+                            <div data-key="p5_2_output" class="terminal-output mt-2 text-sm"></div>
+                        </div>
+                    </div>
 
-                <div class="grid md:grid-cols-3 gap-4 mb-8 text-center">
-                    <div class="bg-red-100 dark:bg-red-900/50 p-4 rounded-lg font-bold text-red-700 dark:text-red-300 shadow-md transition-colors duration-300" data-key="p5_2_req1"></div>
-                    <div class="bg-red-100 dark:bg-red-900/50 p-4 rounded-lg font-bold text-red-700 dark:text-red-300 shadow-md transition-colors duration-300" data-key="p5_2_req2"></div>
-                    <div class="bg-red-100 dark:bg-red-900/50 p-4 rounded-lg font-bold text-red-700 dark:text-red-300 shadow-md transition-colors duration-300" data-key="p5_2_req3"></div>
-                </div>
-
-                <div class="step-card p-6 bg-white dark:bg-dark-card rounded-xl border-t-4 border-ns-warning shadow-lg">
-                    <p class="text-lg font-semibold text-ns-warning mb-3">C++ Simulation Snippet</p>
-                    <div class="cpp-code-block bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 transition-colors duration-300">
-                        <span class="text-gray-400 dark:text-gray-500">// ... other includes ...</span><br>
-                        #include "ns3/netanim-module.h" <span class="font-bold text-ns-warning" data-key="p5_2_snippet_comment1"></span><br>
-                        <br>
-                        int main (int argc, char *argv[])<br>
-                        {<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;... <span class="text-gray-400 dark:text-gray-500">// Node and NetDevice setup ...</span><br>
-                        <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="font-bold text-ns-warning" data-key="p5_2_snippet_comment2"></span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;MobilityHelper mobility;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;... <span class="text-gray-400 dark:text-gray-500">// Configure and Install mobility model</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;mobility.Install (nodes);<br>
-                        <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="font-bold text-ns-warning" data-key="p5_2_snippet_comment3"></span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;AnimationInterface anim ("my-custom-trace.xml");<br>
-                        <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Simulator::Run ();<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;...<br>
-                        }
+                    <!-- 5.3 Visualize -->
+                    <div class="step-card p-6 bg-white dark:bg-dark-card rounded-xl border-t-4 border-ns-primary shadow-lg">
+                        <h3 data-key="p5_3_title" class="text-2xl font-semibold text-ns-secondary dark:text-ns-primary"></h3>
+                        <p data-key="p5_3_desc" class="text-gray-600 dark:text-gray-300 mt-2 mb-4"></p>
+                        <div class="code-block mt-3">
+                            <span class="terminal-prompt">~/ns-3-dev$</span> ./netanim/build/NetAnim
+                        </div>
                     </div>
                 </div>
-
-                <!-- 5.3 Run Custom Code -->
-                <h3 data-key="p5_3_title" class="text-2xl font-semibold text-ns-secondary dark:text-ns-primary mt-12 mb-4"></h3>
-                <p data-key="p5_3_desc" class="text-gray-600 dark:text-gray-300 mb-4"></p>
-                <div class="code-block mt-3">
-                    <span class="terminal-prompt">~/ns-3-dev$</span> ./ns3 run scratch/my-new-sim
-                </div>
-                <p data-key="p5_3_info" class="mt-3 text-gray-700 dark:text-gray-300"></p>
             </section>
 
         </div>
