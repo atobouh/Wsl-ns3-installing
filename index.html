@@ -226,40 +226,89 @@
         }
         .log-warn { color: var(--crimson-alert); background: rgba(255,0,0,0.1); }
 
-        /* --- CONTROLS --- */
+        /* --- CONTROLS (ONE-HAND LAYOUT) --- */
         #mobile-controls {
             display: none;
-            position: absolute;
+            position: fixed;
             bottom: 0;
-            left: 0;
             width: 100%;
-            height: 180px;
+            height: 250px;
             z-index: 1000;
             pointer-events: all;
-            justify-content: space-between;
-            padding: 0 20px 30px 20px;
+            padding: 20px;
             box-sizing: border-box;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
         }
 
-        .control-group { display: flex; gap: 15px; align-items: flex-end; }
+        #mobile-controls.left-handed {
+            left: 0;
+            right: auto;
+        }
+
+        #mobile-controls.right-handed {
+            right: 0;
+            left: auto;
+        }
+
+        #side-toggle {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--cyber-blue);
+            border-radius: 50%;
+            color: var(--cyber-blue);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            touch-action: manipulation;
+        }
+        #side-toggle:active {
+            background: var(--cyber-blue);
+            color: black;
+            transform: translateX(-50%) scale(0.9);
+        }
+
+        .control-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            position: absolute;
+            bottom: 20px;
+            width: 180px;
+        }
+
+        #mobile-controls.right-handed .control-group {
+            right: 20px;
+        }
+
+        #mobile-controls.left-handed .control-group {
+            left: 20px;
+        }
 
         .mob-btn {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: rgba(255,255,255,0.08);
             border: 2px solid var(--toxic-green);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 22px;
             color: var(--toxic-green);
             backdrop-filter: blur(4px);
             touch-action: manipulation;
+            transition: all 0.1s;
         }
-        .mob-btn:active { background: var(--toxic-green); color: black; transform: scale(0.9); }
-        .btn-big { width: 90px; height: 90px; border-color: var(--crimson-alert); color: var(--crimson-alert); }
+        .mob-btn:active { background: var(--toxic-green); color: black; transform: scale(0.85); }
+        .btn-big { width: 70px; height: 70px; border-color: var(--crimson-alert); color: var(--crimson-alert); font-size: 28px; }
         .btn-big:active { background: var(--crimson-alert); }
 
         /* --- SCREENS --- */
@@ -351,12 +400,11 @@
         </div>
     </div>
 
-    <div id="mobile-controls">
+    <div id="mobile-controls" class="right-handed">
+        <div id="side-toggle" title="Switch hand (Left/Right)">⇄</div>
         <div class="control-group">
             <div class="mob-btn" id="btn-left">←</div>
             <div class="mob-btn" id="btn-right">→</div>
-        </div>
-        <div class="control-group">
             <div class="mob-btn" id="btn-rotate">↻</div>
             <div class="mob-btn btn-big" id="btn-drop">↓</div>
         </div>
@@ -1013,6 +1061,30 @@ attachTouch('btn-left', () => move(-1));
 attachTouch('btn-right', () => move(1));
 attachTouch('btn-rotate', () => performRotate());
 attachTouch('btn-drop', () => drop());
+
+/* --- HAND PREFERENCE TOGGLE --- */
+document.getElementById('side-toggle').addEventListener('click', () => {
+    const controls = document.getElementById('mobile-controls');
+    const isRightHanded = controls.classList.contains('right-handed');
+    
+    if(isRightHanded) {
+        controls.classList.remove('right-handed');
+        controls.classList.add('left-handed');
+        localStorage.setItem('tetris-hand', 'left');
+    } else {
+        controls.classList.remove('left-handed');
+        controls.classList.add('right-handed');
+        localStorage.setItem('tetris-hand', 'right');
+    }
+});
+
+// Load saved preference
+window.addEventListener('DOMContentLoaded', () => {
+    const savedHand = localStorage.getItem('tetris-hand') || 'right';
+    const controls = document.getElementById('mobile-controls');
+    controls.classList.remove('left-handed', 'right-handed');
+    controls.classList.add(savedHand + '-handed');
+});
 
 /* --- UI HELPERS --- */
 function logEvent(msg, isWarn = false) {
